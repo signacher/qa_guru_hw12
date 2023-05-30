@@ -18,8 +18,9 @@ class DashPage:
             browser.element('.CommonmarkRender-Paragraph').should(have.text('Новость тест'))
         with allure.step('Вызываем контекстное меню'):
             browser.element('.ContextMenu-Toggle').click()
-        with allure.step('Нажимаем Подтвердить удаление'):
+        with allure.step('В меню выбираем Удалить'):
             browser.all('.ContextMenu-Item').element_by(have.text('Удалить')).click()
+        with allure.step('Нажимаем Подтвердить удаление'):
             browser.all('.Confirm-Button').element_by(have.text('Подтвердить')).click()
             browser.element('.CommonmarkRender-Paragraph').should(be.present)
 
