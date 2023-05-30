@@ -2,6 +2,7 @@ import allure
 from selene.support.shared import browser
 from selene import have, query, be
 
+
 class DashPage:
 
     def publication_news(self):
@@ -24,7 +25,9 @@ class DashPage:
             browser.all('.Confirm-Button').element_by(have.text('Подтвердить')).click()
             browser.element('.CommonmarkRender-Paragraph').should(be.present)
 
+
+    def should_delete_news(self):
         with allure.step('Проверяем отсутствие новости в ленте по тексту новости'):
-            browser.driver.refresh()
-            news = browser.element('.ContextMenu-Toggle').should(be.present).get(query.text)
+            news = browser.element('.CommonmarkRender-Paragraph').should(be.present).get(query.text)
+            print('Текст новости ',news)
             assert news != 'Новость тест',f'Новость не удалена!!!Текст новости {news}'
