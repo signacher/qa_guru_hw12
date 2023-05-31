@@ -1,6 +1,6 @@
 {
   "base": {
-    "logo": "\logo-face (1).png",
+    "logo": "logo.png",
     "project": "${JOB_BASE_NAME}",
     "environment": "V5 PRERELEASE",
     "comment": "Test alllure notifications",
