@@ -29,5 +29,5 @@ class DashPage:
     def should_delete_news(self):
         with allure.step('Проверяем отсутствие новости в ленте по тексту новости'):
             news = browser.element('.CommonmarkRender-Paragraph').should(be.present).get(query.text)
-            print('Текст последней публикации в ленте: ',news)
+            print('Текст последней публикации в ленте после удаления: ',news)
             assert news != 'Новость тест',f'Новость не удалена!!!Текст новости {news}'
