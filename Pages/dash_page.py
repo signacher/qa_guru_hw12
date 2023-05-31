@@ -9,10 +9,11 @@ class DashPage:
             browser.element('#news').click()
         with allure.step('Вызываем редактор в поле ввода текста новости'):
             browser.element('.DraftEditorMui5').click()
+
         with allure.step('Вводим в поле ввода текст новости'):
             browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').type('Новость тест').press_tab()
         with allure.step('Нажимаем кнопку Опубликовать'):
-            browser.all('.MuiButton-sizeLarge').element_by(have.text("ОПУБЛИКОВАТЬ")).click()
+            browser.all('.MuiButton-containedSizeLarge').element_by(have.text("ОПУБЛИКОВАТЬ")).click()
 
         with allure.step('Проверяем появление новости в ленте по тексту новости'):
             browser.element('.CommonmarkRender-Paragraph').should(have.text('Новость тест'))
