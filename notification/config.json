@@ -1,16 +1,30 @@
+
 {
   "base": {
-    "project": "python_telegram",
-    "environment": "PROD",
-    "comment": "link to pull request",
-    "reportLink": "https://jenkins.autotests.cloud/job/python_telegram/1/",
+    "logo": "C:\\Users\\Alex\\PycharmProjects\\PRYANIKY_TEST\\logo-face (1).png",
+    "project": "PRYANIKY AUTOTEST",
+    "environment": "V5 PRERELEASE",
+    "comment": "Test alllure notitfications",
+    "reportLink": "https://github.com/qa-guru/allure-notifications/blob/master/README.md",
     "language": "en",
-    "allureFolder": "allure-report/",
+    "allureFolder": "C:\\Users\\Alex\\AppData\\Local\\Temp\\1513433153584100543\\allure-report\\",
     "enableChart": true
   },
-  "telegram": {
-    "token": "1838101335:AAHr6X6xUSh3Woy1_kNTWQk4axW3qP53LFA",
-    "chat": "-1001789507212",
+  "mail":
+  {
+    "host": "connect.smtp.bz",
+    "port": "465",
+    "username": "al@pryaniky.com",
+    "password": "RAcRotjS7Kcp",
+    "securityProtocol": "SSL",
+    "from": "info@pryaniky.com",
+    "recipient": "at@pryaniky.ru, mr@pryaniky.ru, al@pryaniky.com"
+  },
+  "telegram":
+  {
+    "token": "6292945784:AAF7OznCWm3bF4sGAdAP9uKOD4JRueZnXVk",
+    "chat": "-1001850701948",
     "replyTo": ""
   }
 }
+
