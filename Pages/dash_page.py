@@ -4,7 +4,6 @@ from selene import have, query, be
 
 
 class DashPage:
-
     def publication_news(self):
         with allure.step('Открываем форму отправки новости'):
             browser.element('#news').click()

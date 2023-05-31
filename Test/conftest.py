@@ -12,7 +12,7 @@ from util import attach
 #     )
 
 @pytest.fixture(scope="function",autouse = True )
-def setup_browser(request):
+def setup_browser():
     options = webdriver.ChromeOptions()
     options.browser_version = "100.0"
     # Headless
@@ -37,7 +37,7 @@ def setup_browser(request):
     #     envr = '-rc.v5-stage'
     # elif envr_value == 'prod':
     #     envr = '.app'
-    browser.config.base_url = f'https://test.v5.pryaniky.com'
+    browser.config.base_url = 'https://test.v5.pryaniky.com'
 
     browser.config.timeout = 30
 
