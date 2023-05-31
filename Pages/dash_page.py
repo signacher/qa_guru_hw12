@@ -1,7 +1,7 @@
 import allure
 from selene.support.shared import browser
 from selene import have, query, be
-
+import selene
 
 class DashPage:
     def publication_news(self):
@@ -13,7 +13,7 @@ class DashPage:
         with allure.step('Вводим в поле ввода текст новости'):
             browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').type('Новость тест').press_tab()
         with allure.step('Нажимаем кнопку Опубликовать'):
-            browser.all('.MuiButton-containedSizeLarge').element_by(have.text("ОПУБЛИКОВАТЬ")).click()
+            browser.all('.MuiButton-sizeLarge')[2].should(have.text('ОПУБЛИКОВАТЬ')).click()
 
         with allure.step('Проверяем появление новости в ленте по тексту новости'):
             browser.element('.CommonmarkRender-Paragraph').should(have.text('Новость тест'))
