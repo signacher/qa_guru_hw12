@@ -3,13 +3,13 @@ from selene.support.shared import browser
 from selenium import webdriver
 from util import attach
 
-def pytest_addoption(parser):
-    parser.addoption(
-        '--envr',
-        help='Среда, в которой будут запускатся тесты',
-        choises=['dev', 'stage', 'prod'],
-        default='dev'
-    )
+# def pytest_addoption(parser):
+#     parser.addoption(
+#         '--envr',
+#         help='Среда, в которой будут запускатся тесты',
+#         choises=[dev, stag, prod],
+#         default= dev
+#     )
 
 @pytest.fixture(scope="function",autouse = True )
 def setup_browser(request):
@@ -30,14 +30,14 @@ def setup_browser(request):
     browser.config.driver_remote_url = (
         "https://user1:1234@selenoid.autotests.cloud/wd/hub"
     )
-    envr_value = request.config.getoption('--envr')
-    if envr_value=='dev':
-        envr = '-dev.v5-pre'
-    elif envr_value=='stage':
-        envr = '-rc.v5-stage'
-    elif envr_value == 'prod':
-        envr = '.app'
-    browser.config.base_url = f'https://test{envr}.pryaniky.com'
+    # envr_value = request.config.getoption('--envr')
+    # if envr_value==dev:
+    #     envr = '-dev.v5-pre'
+    # elif envr_value=='stage':
+    #     envr = '-rc.v5-stage'
+    # elif envr_value == 'prod':
+    #     envr = '.app'
+    browser.config.base_url = f'https://test.v5.pryaniky.com'
 
     browser.config.timeout = 30
 
