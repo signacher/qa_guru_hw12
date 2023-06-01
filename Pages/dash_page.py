@@ -14,10 +14,10 @@ class DashPage:
             browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').send_keys('Новость тест').press_tab()
         with allure.step('Нажимаем кнопку Опубликовать'):
             # browser.all('.MuiButton-sizeLarge').element_by(have.exact_text('ОПУБЛИКОВАТЬ')).perform(selene.command.js.click)
-            browser.element('#SENDNEWSBUTTON').perform(selene.command.js.click)
+            browser.element('#SENDNEWSBUTTON').click()
 
         with allure.step('Проверяем появление новости в ленте по тексту новости'):
-            browser.element('.CommonmarkRender-Paragraph').should(have.text('Новость тест'))
+            browser.all('.CommonmarkRender-Paragraph')[0].should(have.text('Новость тест'))
         with allure.step('Вызываем контекстное меню'):
             browser.element('.ContextMenu-Toggle').perform(selene.command.js.click)
         with allure.step('В меню выбираем Удалить'):
