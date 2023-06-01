@@ -11,13 +11,16 @@ class DashPage:
             browser.element('.DraftEditorMui5').click()
 
         with allure.step('Вводим в поле ввода текст новости'):
-            browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').send_keys('Новость тест').press_tab()
+            browser.element('//div[@class="notranslate public-DraftEditor-content" and @role="combobox"]').type('Новость тест').press_tab()
         with allure.step('Нажимаем кнопку Опубликовать'):
             # browser.all('.MuiButton-sizeLarge').element_by(have.exact_text('ОПУБЛИКОВАТЬ')).perform(selene.command.js.click)
-            browser.element('#SENDNEWSBUTTON').click()
+            browser.element('#SENDNEWSBUTTON').click().click()
 
         with allure.step('Проверяем появление новости в ленте по тексту новости'):
             browser.all('.CommonmarkRender-Paragraph')[0].should(have.text('Новость тест'))
+
+
+    def delete_news(self):
         with allure.step('Вызываем контекстное меню'):
             browser.element('.ContextMenu-Toggle').perform(selene.command.js.click)
         with allure.step('В меню выбираем Удалить'):
@@ -25,9 +28,6 @@ class DashPage:
         with allure.step('Нажимаем Подтвердить удаление'):
             browser.all('.Confirm-Button').element_by(have.text('Подтвердить')).click()
             browser.element('.CommonmarkRender-Paragraph').should(be.present)
-
-
-    def should_delete_news(self):
         with allure.step('Проверяем отсутствие новости в ленте по тексту новости'):
             news = browser.element('.CommonmarkRender-Paragraph').should(be.present).get(query.text)
             print('Текст последней публикации в ленте после удаления: ',news)
