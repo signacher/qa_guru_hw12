@@ -37,7 +37,7 @@ def setup_browser():
     #     envr = '-rc.v5-stage'
     # elif envr_value == 'prod':
     #     envr = '.app'
-    browser.config.base_url = 'https://test.v5.pryaniky.com'
+    browser.config.base_url = 'https://test-dev.v5-pre.pryaniky.com'
 
     browser.config.timeout = 30
 
