@@ -19,7 +19,7 @@ class DashPage:
         with allure.step('Проверяем появление новости в ленте по тексту новости'):
             browser.element('.CommonmarkRender-Paragraph').should(have.text('Новость тест'))
         with allure.step('Вызываем контекстное меню'):
-            browser.element('.ContextMenu-Toggle').click()
+            browser.element('.ContextMenu-Toggle').perform(selene.command.js.click)
         with allure.step('В меню выбираем Удалить'):
             browser.all('.ContextMenu-Item').element_by(have.text('Удалить')).click()
         with allure.step('Нажимаем Подтвердить удаление'):
